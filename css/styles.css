@@ -1,0 +1,17 @@
+#searchbar{
+	width:20%;
+	float:right;
+}
+
+
+.input-container {
+    width:97px;
+    height:20px;
+}
+
+button{
+	float:right;
+}
+
+html, body { height: 100%; margin: 0; padding: 0; }
+      		#map { height: 100%; }
