@@ -17,8 +17,9 @@
 	<div id="searchbar">
 		<h3 id="title">Find Places in Atlanta</h3>
 		<p>What kind of place?</p>
-		<input data-bind="value: placequery" class="input-container" type="text" id="search"/>
+		<input data-bind="value: userSearch" class="input-container" type="text" id="search"/>
 		<button data-bind="click: searchFSquare" type="button">Search</button>
+		<p>You searched for: <strong data-bind="text: userSearch"></strong></p>
 	</div>
 	 <div id="map"></div>
 	    <script type="text/javascript">
