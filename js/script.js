@@ -63,8 +63,12 @@ function AppViewModel(){
 				var infowindow = new google.maps.InfoWindow({content:'Hello!'});
 				var i;
 				for(i = 0; i < Math.min(15, responseLength); i++){
+					var venueName = results.response.groups[0].items[i].venue.name;
+					var tip = results.response.groups[0].items[i].tips[0].text;
+					var phone = results.response.groups[0].items[i].venue.contact.phone;
+					var contentString = '<h2>' + venueName + '</h2><p>' + tip + '</p>' + '<p>' + phone + '<p>';
 					var infowindow = new google.maps.InfoWindow({
-					content: results.response.groups[0].items[i].tips[0].text
+						content: contentString
 					});
 					infowindows.push(infowindow);
 					
