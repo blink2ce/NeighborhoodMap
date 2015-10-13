@@ -5,6 +5,8 @@ function AppViewModel(){
 	var clientSecret = "OFHCOKLL1KHDTB2F4YHNXV5RSQOWICRMQXLOTOXJTNRS2BSQ";
 	this.userSearch = ko.observable("Where?");
 	var markers = [];
+	var bouncingMarker = null;
+	var infoWindow = new google.maps.InfoWindow();
 	var map;
 	function initMap() {
 	  map = new google.maps.Map(document.getElementById('map'), {
@@ -27,9 +29,7 @@ function AppViewModel(){
 			alert( "error" );
 			})
 		.done(function(results) {
-			//Populate map with markers
-			//for each venue in the JSON data between 0 and 10, create a 
-			//marker on the map and link to that venue's lat/long data.
+			//Make an array of markers
 			console.log(results);
 			function createMarkers(results){
 				var responseLength = results.response.groups[0].items.length;
@@ -42,13 +42,15 @@ function AppViewModel(){
 					var myLatlng = new google.maps.LatLng(lat,lng);
 	    			var marker = new google.maps.Marker({
 	    				position: myLatlng,
-	    				title:"Hello World!"
+	    				title: "Hello World!",
+	    				animation: google.maps.Animation.DROP
 					});
 					markers.push(marker);
 				}
 			}
 			createMarkers(results);
 
+			//Put markers on map
 			function setMapOnAll(map) {
 			  for (var i = 0; i < markers.length; i++) {
 			    markers[i].setMap(map);
@@ -56,39 +58,35 @@ function AppViewModel(){
 			}
 			setMapOnAll(map);
 
-			//When the user clicks on a marker, show a tip about the venue in an InfoWindow.
-			var infowindows = [];
-			function createInfoWindows(map, results){
-				var responseLength = results.response.groups[0].items.length;
-				var infowindow = new google.maps.InfoWindow({content:'Hello!'});
-				var i;
-				for(i = 0; i < Math.min(15, responseLength); i++){
-					var venueName = results.response.groups[0].items[i].venue.name;
-					var tip = results.response.groups[0].items[i].tips[0].text;
-					var phone = results.response.groups[0].items[i].venue.contact.phone;
-					var contentString = '<h2>' + venueName + '</h2><p>' + tip + '</p>' + '<p>' + phone + '<p>';
-					var infowindow = new google.maps.InfoWindow({
-						content: contentString
-					});
-					infowindows.push(infowindow);
-					
-				}
-				console.log(infowindows);
-			}
-			createInfoWindows(map, results);
-
 			//Set event listeners for the InfoWindows to open upon the marker being clicked.
-			function setInfoWindows(map, results){
+			function setInfoWindow(map, results){
 				var responseLength = results.response.groups[0].items.length;
+				var currentMarker = null;
 				for(var i = 0; i < Math.min(15, responseLength); i++){
 					google.maps.event.addListener(markers[i], 'click', (function(i) {
         				return function() {
-          					infowindows[i].open(map,markers[i]);
+        					var venueName = results.response.groups[0].items[i].venue.name;
+							var tip = results.response.groups[0].items[i].tips[0].text;
+							var phone = results.response.groups[0].items[i].venue.contact.phone;
+							var contentString = '<h2>' + venueName + '</h2><p>' + tip + '</p>' + '<p>' + phone + '<p>';
+        					infoWindow.setContent(contentString);
+          					infoWindow.open(map,markers[i]);
+
+          					//Make the current marker bounce
+          					if(bouncingMarker){
+          						bouncingMarker.setAnimation(null);
+          					}
+          					if(bouncingMarker != markers[i]){
+          						markers[i].setAnimation(google.maps.Animation.BOUNCE);
+          						bouncingMarker = markers[i];
+          					}else{
+          						bouncingMarker = null;
+          					}
         				}
 		      		})(i));
 				}
 			}
-			setInfoWindows(map, results);
+			setInfoWindow(map, results);
 
 		});	
 	}
