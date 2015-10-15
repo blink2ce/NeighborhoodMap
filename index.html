@@ -22,6 +22,10 @@
 		<input data-bind="value: userSearch" class="input-container" type="text" id="search"/>
 		<button data-bind="click: searchFSquare" type="button">Search</button>
 		<p>You searched for: <strong data-bind="text: userSearch"></strong></p>
+		<!-- ko foreach: myLocations -->
+			<div data-bind="text: vName"></div>
+		<!--/ko -->
+
 	</div>
 	 <div id="map"></div>
 	
