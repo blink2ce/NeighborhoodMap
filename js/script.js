@@ -42,7 +42,8 @@ function AppViewModel(){
 				dataType: 'json',
 			})
 			.fail(function() {
-				alert( "error" );
+				//put text under searchbar saying data can't be loaded
+				$("#searchbar").append("<strong>Data can't be loaded</strong>");
 			})
 			.done(function(results) {
 				
