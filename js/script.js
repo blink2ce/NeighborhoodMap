@@ -21,7 +21,14 @@ function AppViewModel(){
 
 
 	//Behavior
-	this.searchFSquare = function(){
+
+	//when a user clicks on a card in the right pane, the info window for that card activates and the marker bounce animation is enabled.
+	self.cardClicked = function(){
+		alert("I got here!");
+	}
+
+
+	self.searchFSquare = function(){
 
 		function getResults(){
 			//Delete any existing markers
@@ -40,7 +47,7 @@ function AppViewModel(){
 			.done(function(results) {
 				
 				//Do everything.
-				console.log(results);
+				//console.log(results);
 				createMarkers(results);
 				setMapOnAll(map);
 				setInfoWindow(map, results);
@@ -111,6 +118,8 @@ function AppViewModel(){
 		//Make it go
 		getResults();	
 	}
+
+	
 
 }
 

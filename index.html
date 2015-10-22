@@ -7,7 +7,8 @@
 		<script 
 	    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL4UPX21rH0FahrdZ6Tv21rPeKlY-Mjaw">
 	    </script>
-
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 		<style type="text/css">
       		html, body { height: 100%; margin: 0; padding: 0; }
       		#map { height: 100%; }
@@ -23,7 +24,7 @@
 		<button data-bind="click: searchFSquare" type="button">Search</button>
 		<p>You searched for: <strong data-bind="text: userSearch"></strong></p>
 		<!-- ko foreach: myLocations -->
-			<div data-bind="text: vName"></div>
+		<div class="sidecard" data-bind="text: vName, click: $parent.cardClicked"></div>
 		<!--/ko -->
 
 	</div>
