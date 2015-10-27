@@ -20,9 +20,18 @@
 	<div id="searchbar">
 		<h3 id="title">Find Places in Atlanta</h3>
 		<p>What kind of place?</p>
-		<input data-bind="value: userSearch" class="input-container" type="text" id="search"/>
-		<button data-bind="click: searchFSquare" type="button">Search</button>
-		<p>You searched for: <strong data-bind="text: userSearch"></strong></p>
+		<div id="searchArea">
+			<input data-bind="value: userSearch" class="input-container" type="text" id="search"/>
+			<button data-bind="click: searchFSquare" type="button">Search</button>
+		</div>
+		<strong data-bind="text: errorMessage"></strong>
+		<div data-bind="visible: filterArea">
+			<input type="checkbox" data-bind="checked: filter, click: filterResults">Filter results
+		</div>
+		<p>You searched for: <strong data-bind="text: userSearch"></strong></p>		
+		<div data-bind="visible: filter">
+			<input type="text"><p>Filter Keywords</p>
+		</div>
 		<!-- ko foreach: myLocations -->
 		<div class="sidecard" data-bind="text: vName, click: $parent.cardClicked"></div>
 		<!--/ko -->

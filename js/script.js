@@ -3,8 +3,11 @@ function AppViewModel(){
 	//Data
 	var clientID = "DXJOXHELH1K44MFQUGUWKS2LDYW1FCIFV3YKXBVJSIKNTAZN";
 	var clientSecret = "OFHCOKLL1KHDTB2F4YHNXV5RSQOWICRMQXLOTOXJTNRS2BSQ";
-	self.userSearch = ko.observable("Where?");
-	self.myLocations= ko.observableArray([]);
+	self.userSearch = ko.observable();
+	self.errorMessage = ko.observable();
+	self.myLocations = ko.observableArray([]);
+	self.filterArea = ko.observable(false);
+	self.filter = ko.observable(false);
 	var markers = [];
 	var bouncingMarker = null;
 	var infoWindow = new google.maps.InfoWindow();
@@ -18,8 +21,10 @@ function AppViewModel(){
 	}
 	google.maps.event.addDomListener(window, 'load', initMap);
 
-
-
+	self.filterResults = function(){
+		//only show cards where any word in the card matches the word in the search bar.
+		return true;
+	}
 
 	//Behavior
 	self.searchFSquare = function(){
@@ -35,7 +40,7 @@ function AppViewModel(){
 				dataType: 'json',
 			})
 			.fail(function() {
-				$("#searchbar").append("<strong>Data can't be loaded</strong>");
+				self.errorMessage("Data can't be loaded");
 			})
 			.done(function(data) {
 				//Do everything.
@@ -50,6 +55,13 @@ function AppViewModel(){
 		function createMarkersAndInfoWindows(results){
 			//Make array of markers to put on the map.
 			var responseLength = results.response.groups[0].items.length;
+			if(responseLength < 2){
+				self.errorMessage("Too few results. Try again.");
+				self.filterArea(false);
+			}else{
+				self.errorMessage("");
+				self.filterArea(true);
+			}
 			var lat;
 			var lng;
 			var currentMarker = null;
@@ -89,6 +101,7 @@ function AppViewModel(){
     				}
 	      		})(i));
 			}
+
 		}
 		
 		function setBouncingMarker(marker){
