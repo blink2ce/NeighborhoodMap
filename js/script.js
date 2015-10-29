@@ -8,6 +8,7 @@ function AppViewModel(){
 	self.myLocations = ko.observableArray([]);
 	self.filterArea = ko.observable(false);
 	self.filter = ko.observable(false);
+	self.filterSearch = ko.observable();
 	var markers = [];
 	var bouncingMarker = null;
 	var infoWindow = new google.maps.InfoWindow();
@@ -21,12 +22,40 @@ function AppViewModel(){
 	}
 	google.maps.event.addDomListener(window, 'load', initMap);
 
-	self.filterResults = function(){
-		//only show cards where any word in the card matches the word in the search bar.
-		return true;
+
+	//behavior
+
+	//Put markers on map
+	function setMapOnAll(map) {
+	  for (var i = 0; i < markers.length; i++) {
+	    markers[i].setMap(map);
+	  }
 	}
 
-	//Behavior
+
+	self.filterResults = function(data, event){
+		//only show cards where any word in the card matches the word in the search bar.
+		console.log(self.filterSearch());
+		console.log(self.myLocations().length);
+		console.log(self.myLocations()[0]);
+		//Remove cards not related to keywords
+		self.myLocations.remove(function(item){return item.vName.search(self.filterSearch()) < 1});
+		//Remove markers not related to keywords
+		//Go through remaining locations and remove all markers that don't have matching ID of the remaining locations
+		var newMarkers = []
+		for(var i = 0; i < markers.length; i++){
+			for(var j = 0; j < self.myLocations().length; j++){
+				if(markers[i].id == self.myLocations()[j].id){
+					newMarkers.push(markers[i]);
+				}
+			}
+		}
+		console.log(newMarkers);
+		setMapOnAll(null); //This is not getting rid of all the markers on the screen, which is what I thought it would do
+		markers = newMarkers;
+		setMapOnAll(map);
+	}
+	
 	self.searchFSquare = function(){
 
 		function getResults(){
@@ -54,8 +83,9 @@ function AppViewModel(){
 		
 		function createMarkersAndInfoWindows(results){
 			//Make array of markers to put on the map.
+			self.myLocations.removeAll();
 			var responseLength = results.response.groups[0].items.length;
-			if(responseLength < 2){
+			if(responseLength < 1){
 				self.errorMessage("Too few results. Try again.");
 				self.filterArea(false);
 			}else{
@@ -83,7 +113,6 @@ function AppViewModel(){
     				id: i
 				});
 				markers.push(marker);
-				//console.log(marker.id);
 
 				//Set event listeners for the InfoWindows to open upon the marker being clicked.
 				google.maps.event.addListener(markers[i], 'click', (function(i) {
@@ -130,14 +159,6 @@ function AppViewModel(){
 			infoWindow.open(map,markers[card.id]);
 	
 
-		}
-
-
-		//Put markers on map
-		function setMapOnAll(map) {
-		  for (var i = 0; i < markers.length; i++) {
-		    markers[i].setMap(map);
-		  }
 		}
 
 			
