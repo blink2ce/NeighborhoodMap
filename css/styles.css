@@ -1,5 +1,6 @@
-#searchbar{
+#sidebar{
 	width:20%;
+	min-width: 200px;
 	float:right;
 }
 
@@ -16,5 +17,31 @@ button{
 	float:right;
 }
 
-html, body { height: 100%; margin: 0; padding: 0; }
-      		#map { height: 100%; }
+html, body { 
+	height: 100%; 
+	margin: 0; 
+	padding: 0; 
+}
+
+#map { 
+	height: 100%; 
+}
+
+@media (min-width: 600px) {
+ 	#sidebar{
+  		font-size: x-large;
+  	}
+  	h1{
+  		font-size: 2em;
+  	}
+}
+
+@media (max-width: 1303px){
+	h1{
+		font-size: 1.5em;
+	}
+}
+
+sub{
+	font-size: .5em;
+}

@@ -21,7 +21,12 @@ function AppViewModel(){
 	  });	
 	}
 	google.maps.event.addDomListener(window, 'load', initMap);
-
+	//Center map if window is resized
+	google.maps.event.addDomListener(window, "resize", function() {
+    	var center = map.getCenter();
+    	google.maps.event.trigger(map, "resize");
+    	map.setCenter(center);
+	});
 
 	//behavior
 

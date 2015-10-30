@@ -13,22 +13,32 @@
 	</head>
 
 	<body>
-	<div id="searchbar">
-		<h3 id="title">Find Places in Atlanta</h3>
+	<div id="sidebar">
+		<h1 id="title">Find Places in Atlanta</h1>
 		<p>What kind of place?</p>
-		<div id="searchArea">
-			<input data-bind="value: userSearch" class="input-container" type="text" id="search"/>
-			<button data-bind="click: searchFSquare" type="button">Search</button>
+		<div id="searchArea" class="input-group">
+		   <input data-bind="value: userSearch" type="text" id="search" class="form-control">
+		   <span class="input-group-btn">
+		        <button data-bind="click: searchFSquare" type="button" class="btn btn-default">Search</button>
+		   </span>
 		</div>
+
 		<strong data-bind="text: errorMessage"></strong>
-		<div data-bind="visible: filterArea">
-			<input type="checkbox" data-bind="checked: filter">Filter results
+		<div data-bind="visible: filterArea" >
+			<label>
+				<input type="checkbox" data-bind="checked: filter">
+				Filter results
+			</label>
 		</div>
-		<p>You searched for: <strong data-bind="text: userSearch"></strong></p>	
-		<div data-bind="visible: filter" id="searchArea">
-			<button data-bind="click: filterResults" type="button">Filter</button>
-			<input type="text" data-bind="value: filterSearch"><p>Filter Keywords</p>
+
+		<div data-bind="visible: filter" id="searchArea" class="input-group">
+   			<input type="text" data-bind="value: filterSearch" class="form-control">
+   			<span class="input-group-btn">
+        		<button data-bind="click: filterResults" type="button" class="btn btn-default">Go!</button>
+   			</span>
 		</div>
+
+
 		<!-- ko foreach: myLocations -->
 		<div class="sidecard" data-bind="text: vName, click: $parent.cardClicked"></div>
 		<!--/ko -->
