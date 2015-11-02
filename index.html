@@ -13,39 +13,40 @@
 	</head>
 
 	<body>
-	<div id="sidebar">
-		<h1 id="title">Find Places in Atlanta</h1>
-		<p>What kind of place?</p>
-		<div id="searchArea" class="input-group">
-		   <input data-bind="value: userSearch" type="text" id="search" class="form-control">
-		   <span class="input-group-btn">
-		        <button data-bind="click: searchFSquare" type="button" class="btn btn-default">Search</button>
-		   </span>
-		</div>
+		<!--<div class="rowe"> Creating a div containing the map div seems to break the map. -->
+			<div id="map" class="col-md-9"></div>
 
-		<strong data-bind="text: errorMessage"></strong>
-		<div data-bind="visible: filterArea" >
-			<label>
-				<input type="checkbox" data-bind="checked: filter">
-				Filter results
-			</label>
-		</div>
+			<div id="panel" class="col-md-3">
+				<div id="sidebar">
+					<h1 id="title">Find Places in Atlanta</h1>
+					<p>What kind of place?</p>
+					<div id="searchArea" class="input-group">
+					   <input data-bind="value: userSearch" type="text" id="search" class="form-control">
+					   <span class="input-group-btn">
+					        <button data-bind="click: searchFSquare" type="button" class="btn btn-default">Search</button>
+					   </span>
+					</div>
+					<strong data-bind="text: errorMessage"></strong>
+					<div data-bind="visible: filterArea" id="filteroption">
+							<input type="checkbox" data-bind="checked: filter">
+							Filter results
+					</div>
+					<div data-bind="visible: filter" id="searchArea" class="input-group">
+			   			<input type="text" data-bind="value: filterSearch" class="form-control">
+			   			<span class="input-group-btn">
+			        		<button data-bind="click: filterResults" type="button" class="btn btn-default">Filter</button>
+			   			</span>
+					</div>
+				</div>
+				<div id="scrollingsection">
+					<!-- ko foreach: myLocations -->
+					<div id="sidecard" data-bind="text: vName, click: $parent.cardClicked"></div>
+					<!--/ko -->
+				</div>
+			</div>
+		<!-- </div> -->
 
-		<div data-bind="visible: filter" id="searchArea" class="input-group">
-   			<input type="text" data-bind="value: filterSearch" class="form-control">
-   			<span class="input-group-btn">
-        		<button data-bind="click: filterResults" type="button" class="btn btn-default">Go!</button>
-   			</span>
-		</div>
 
-
-		<!-- ko foreach: myLocations -->
-		<div class="sidecard" data-bind="text: vName, click: $parent.cardClicked"></div>
-		<!--/ko -->
-
-	</div>
-	 <div id="map"></div>
-	
 	<script type='text/javascript' src='js/script.js'></script>
 	</body>
 

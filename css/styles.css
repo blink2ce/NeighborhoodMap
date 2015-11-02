@@ -1,11 +1,23 @@
-#sidebar{
+/*#sidebar{
 	width:20%;
 	min-width: 200px;
 	float:right;
+	height:30%;
 }
+*/
 
-.sidecard {
+ #scrollingsection{
+ 	overflow: scroll;
+ 	height:400px;
+ 	/*width:20%;
+	min-width: 200px;
+	float:right;
+	height:70%;*/
+ }
+/*
+#sidecard {
 	padding:10px;
+	overflow-y: scroll;
 }
 
 .input-container {
@@ -16,7 +28,7 @@
 button{
 	float:right;
 }
-
+*/
 html, body { 
 	height: 100%; 
 	margin: 0; 
@@ -29,6 +41,9 @@ html, body {
 
 @media (min-width: 600px) {
  	#sidebar{
+  		font-size: x-large;
+  	}
+  	#scrollingsection{
   		font-size: x-large;
   	}
   	h1{
@@ -45,3 +60,16 @@ html, body {
 sub{
 	font-size: .5em;
 }
+
+#filteroption{
+	font-weight: bold;
+	font-size: 0.5em;
+}
+
+.rowe {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
