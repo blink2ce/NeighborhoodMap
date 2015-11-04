@@ -74,6 +74,9 @@ html, body {
 	#filteroption{
 		font-size: large;
 	}
+	h1{
+  		font-size: x-large;
+  	}
 }
 
 @media (min-width: 600px) {
@@ -83,9 +86,8 @@ html, body {
   	#scrollingsection{
   		font-size: x-large;
   	}
-  	h1{
-  		font-size: 2em;
-  	}
+
+  	
 }
 
 @media (max-width: 1303px){
@@ -103,4 +105,6 @@ sub{
 	font-size: 0.5em;
 }
 
-
+#tipUrl{
+	height:20px;
+}

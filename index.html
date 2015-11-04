@@ -38,7 +38,10 @@
 				</div>
 				<div id="scrollingsection">
 					<!-- ko foreach: myLocations -->
-					<div id="sidecard" data-bind="text: vName, click: $parent.cardClicked"></div>
+						<div id="sidecard" data-bind="text: vName, click: $parent.cardClicked">
+						</div>
+						<div data-bind="text: tipUrl">
+						</div>
 					<!--/ko -->
 				</div>
 			</div>
