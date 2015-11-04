@@ -7,19 +7,23 @@
 */
 
  #scrollingsection{
- 	overflow: scroll;
+ 	overflow-y: scroll;
  	height:400px;
+ 	margin-top:20px;
+ 	overflow-x:hidden;
+ 	font-size:large;
  	/*width:20%;
 	min-width: 200px;
 	float:right;
 	height:70%;*/
  }
+
 /*
 #sidecard {
 	padding:10px;
-	overflow-y: scroll;
 }
-
+*/
+/*
 .input-container {
     width:97px;
     height:20px;
@@ -66,10 +70,4 @@ sub{
 	font-size: 0.5em;
 }
 
-.rowe {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-}
 
