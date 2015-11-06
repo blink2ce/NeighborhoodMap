@@ -40,7 +40,7 @@
 					<!-- ko foreach: myLocations -->
 						<div id="sidecard" data-bind="text: vName, click: $parent.cardClicked">
 						</div>
-						<a data-bind="attr: {href: tipUrl}" id="tipLink">See Tip on Foursquare</a>
+						<button type="button" class="btn-info btn-sm" id="tipButton" data-bind="attr: {href: tipUrl}" id="tipLink">See Tip on Foursquare</button>
 					<!--/ko -->
 				</div>
 			</div>

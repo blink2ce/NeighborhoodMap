@@ -1,10 +1,6 @@
-/*#sidebar{
-	width:20%;
-	min-width: 200px;
-	float:right;
-	height:30%;
+#panel{
+	background-color: #ff877a;
 }
-*/
 
  #scrollingsection{
  	overflow-y: scroll;
@@ -13,6 +9,7 @@
  	margin-bottom: 20px;
  	overflow-x:hidden;
  	font-size:large;
+ 	background-color: #ff877a;
 
 
  	/*width:20%;
@@ -22,13 +19,12 @@
  }
 
  #sidecard:hover{
- 	background-color:yellow;
+ 	background-color:#7ad9ff;
  }
 
 
 #sidecard {
 	padding:5px;
-	background:#EEE5E9;
 	border:gray 1px solid;
 }
 
@@ -105,10 +101,7 @@ sub{
 	font-size: 0.5em;
 }
 
-#tipUrl{
-	height:20px;
-}
-
-#tipLink{
-	height:20px;
+#tipButton{
+	border-radius:5px;
+	margin:5px;
 }

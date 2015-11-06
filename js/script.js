@@ -107,7 +107,7 @@ function AppViewModel(){
 				lng = results.response.groups[0].items[i].venue.location.lng;
 				var venueName = results.response.groups[0].items[i].venue.name;
 				//Populate sidebar with venue names
-				currentLocation = {vName: venueName, tipUrl: results.response.groups[0].items[0].tips[0].canonicalUrl};
+				currentLocation = {vName: venueName, tipUrl: results.response.groups[0].items[i].tips[0].canonicalUrl};
 				currentLocation.id = i;
 				self.myLocations.push(currentLocation);
 				//Make a new marker
@@ -136,7 +136,6 @@ function AppViewModel(){
     				}
 	      		})(i));
 			}
-			console.log(self.myLocations());
 
 		}
 		
