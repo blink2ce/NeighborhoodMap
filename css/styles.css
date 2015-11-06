@@ -1,4 +1,4 @@
-#panel{
+body{
 	background-color: #ff877a;
 }
 
@@ -10,12 +10,6 @@
  	overflow-x:hidden;
  	font-size:large;
  	background-color: #ff877a;
-
-
- 	/*width:20%;
-	min-width: 200px;
-	float:right;
-	height:70%;*/
  }
 
  #sidecard:hover{
@@ -26,18 +20,10 @@
 #sidecard {
 	padding:5px;
 	border:gray 1px solid;
+	border-radius: 5px;
+	background-color: #C6F9FF;
 }
 
-/*
-.input-container {
-    width:97px;
-    height:20px;
-}
-
-button{
-	float:right;
-}
-*/
 html, body { 
 	height: 100%; 
 	margin: 0; 
@@ -67,9 +53,6 @@ html, body {
 	input[type='checkbox']:checked {
 	    background: #abd;
 	}
-	#filteroption{
-		font-size: large;
-	}
 	h1{
   		font-size: x-large;
   	}
@@ -81,19 +64,13 @@ html, body {
   	}
   	#scrollingsection{
   		font-size: x-large;
-  	}
-
-  	
+  	} 	
 }
 
 @media (max-width: 1303px){
 	h1{
 		font-size: 1.5em;
 	}
-}
-
-sub{
-	font-size: .5em;
 }
 
 #filteroption{
@@ -104,4 +81,7 @@ sub{
 #tipButton{
 	border-radius:5px;
 	margin:5px;
+	background-color:#47CBD9;
+	color:black;
+
 }
