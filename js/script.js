@@ -164,8 +164,10 @@ function AppViewModel(){
 			infoWindow.setContent(contentString);
 			infoWindow.id = card.id;
 			infoWindow.open(map,markers[card.id]);
-	
+		}
 
+		self.openTipPage = function(){
+			alert("I got here!");
 		}
 
 			
