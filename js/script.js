@@ -108,6 +108,7 @@ function AppViewModel(){
 				var venueName = results.response.groups[0].items[i].venue.name;
 				//Populate sidebar with venue names
 				currentLocation = {vName: venueName, tipUrl: results.response.groups[0].items[i].tips[0].canonicalUrl};
+				console.log("tipUrl is: " + currentLocation.tipUrl);
 				currentLocation.id = i;
 				self.myLocations.push(currentLocation);
 				//Make a new marker

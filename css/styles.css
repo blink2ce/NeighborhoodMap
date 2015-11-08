@@ -79,9 +79,12 @@ html, body {
 }
 
 #tipButton{
-	border-radius:5px;
+	border: 1px solid black;
 	margin:5px;
 	background-color:#47CBD9;
 	color:black;
+}
 
+#tipButton:hover{
+	background-color: #c9f0f4;
 }
