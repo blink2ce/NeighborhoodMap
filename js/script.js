@@ -1,6 +1,6 @@
 function AppViewModel(){
 	var self = this;
-	//Data
+	//DATA
 	var clientID = "DXJOXHELH1K44MFQUGUWKS2LDYW1FCIFV3YKXBVJSIKNTAZN";
 	var clientSecret = "OFHCOKLL1KHDTB2F4YHNXV5RSQOWICRMQXLOTOXJTNRS2BSQ";
 	self.userSearch = ko.observable();
@@ -14,6 +14,7 @@ function AppViewModel(){
 	var infoWindow = new google.maps.InfoWindow();
 	var map;
 	var results;
+	//Create the map and set the location
 	function initMap() {
 	  map = new google.maps.Map(document.getElementById('map'), {
 	    center: {lat: 33.755, lng: -84.390},
@@ -28,7 +29,7 @@ function AppViewModel(){
     	map.setCenter(center);
 	});
 
-	//behavior
+	//BEHAVIOR
 
 	//Put markers on map
 	function setMapOnAll(map) {
@@ -37,7 +38,7 @@ function AppViewModel(){
 	  }
 	}
 
-
+	//Filter the results in the side window using a keyword to filter against. Runs when the filter button is clicked.
 	self.filterResults = function(data, event){
 		//only show cards where any word in the card matches the word in the search bar.
 		console.log(self.filterSearch());
@@ -56,11 +57,12 @@ function AppViewModel(){
 			}
 		}
 		console.log(newMarkers);
-		setMapOnAll(null); //This is not getting rid of all the markers on the screen, which is what I thought it would do
+		setMapOnAll(null);
 		markers = newMarkers;
 		setMapOnAll(map);
 	}
 	
+	//Get results from Foursquare API using search terms that the user inputs.
 	self.searchFSquare = function(){
 
 		function getResults(){
@@ -68,6 +70,7 @@ function AppViewModel(){
 			setMapOnAll(null);
 			markers = [];
 			var URL = "https://api.foursquare.com/v2/venues/explore?ll=33.755,-84.390&radius=5000&client_id=" + clientID + "&client_secret=" + clientSecret + "&query=" + self.userSearch() + "&v=20160101";
+			//Ajax call to get venue info usingthe Foursquare API.
 			var info = $.ajax({
 				type: 'GET',
 				url: URL,
@@ -77,12 +80,10 @@ function AppViewModel(){
 				self.errorMessage("Data can't be loaded");
 			})
 			.done(function(data) {
-				//Do everything.
+				//The two functions below kick everything off. 
 				results = data;
 				createMarkersAndInfoWindows(results);
 				setMapOnAll(map);
-				console.log(results);
-				console.log(results.response.groups[0].items[0].tips[0].canonicalUrl)
 			});
 		}
 
@@ -91,6 +92,7 @@ function AppViewModel(){
 			//Make array of markers to put on the map.
 			self.myLocations.removeAll();
 			var responseLength = results.response.groups[0].items.length;
+			//If there are no venues to report from Foursquare, report error. 
 			if(responseLength < 1){
 				self.errorMessage("Too few results. Try again.");
 				self.filterArea(false);
@@ -102,6 +104,7 @@ function AppViewModel(){
 			var lng;
 			var currentMarker = null;
 			var currentLocation;
+			//Take the first 15 results from Foursquare and create markers and push the markers to the map.
 			for(var i = 0; i < Math.min(15, responseLength); i++){
 				lat = results.response.groups[0].items[i].venue.location.lat;
 				lng = results.response.groups[0].items[i].venue.location.lng;
@@ -140,6 +143,7 @@ function AppViewModel(){
 
 		}
 		
+		//Make the markers bounce when clicked. 
 		function setBouncingMarker(marker){
 			if(bouncingMarker){
 				bouncingMarker.setAnimation(null);
