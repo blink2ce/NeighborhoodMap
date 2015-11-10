@@ -39,16 +39,16 @@ function AppViewModel(){
 	}
 
 	//Filter the results in the side window using a keyword to filter against. Runs when the filter button is clicked.
-	self.filterResults = function(data, event){
+	self.filterResults = function(){
 		//only show cards where any word in the card matches the word in the search bar.
 		console.log(self.filterSearch());
 		console.log(self.myLocations().length);
 		console.log(self.myLocations()[0]);
 		//Remove cards not related to keywords
-		self.myLocations.remove(function(item){return item.vName.search(self.filterSearch()) < 1});
+		self.myLocations.remove(function(item){return item.vName.search(self.filterSearch()) < 1;});
 		//Remove markers not related to keywords
 		//Go through remaining locations and remove all markers that don't have matching ID of the remaining locations
-		var newMarkers = []
+		var newMarkers = [];
 		for(var i = 0; i < markers.length; i++){
 			for(var j = 0; j < self.myLocations().length; j++){
 				if(markers[i].id == self.myLocations()[j].id){
@@ -60,7 +60,7 @@ function AppViewModel(){
 		setMapOnAll(null);
 		markers = newMarkers;
 		setMapOnAll(map);
-	}
+	};
 	
 	//Get results from Foursquare API using search terms that the user inputs.
 	self.searchFSquare = function(){
@@ -102,7 +102,6 @@ function AppViewModel(){
 			}
 			var lat;
 			var lng;
-			var currentMarker = null;
 			var currentLocation;
 			//Take the first 15 results from Foursquare and create markers and push the markers to the map.
 			for(var i = 0; i < Math.min(15, responseLength); i++){
@@ -137,7 +136,7 @@ function AppViewModel(){
 
 						//Make the current marker bounce
 						setBouncingMarker(markers[i]);
-    				}
+    				};
 	      		})(i));
 			}
 
@@ -168,16 +167,11 @@ function AppViewModel(){
 			infoWindow.setContent(contentString);
 			infoWindow.id = card.id;
 			infoWindow.open(map,markers[card.id]);
-		}
-
-		self.openTipPage = function(){
-			alert("I got here!");
-		}
-
+		};
 			
 		//Make it go
 		getResults();	
-	}
+	};
 
 	
 
