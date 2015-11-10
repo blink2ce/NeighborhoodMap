@@ -1,90 +1,93 @@
-body{
-	background-color: #ff877a;
+body {
+    background-color: #ff877a;
 }
 
- #scrollingsection{
- 	overflow-y: scroll;
- 	height:600px;
- 	margin-top:20px;
- 	margin-bottom: 20px;
- 	overflow-x:hidden;
- 	font-size:large;
- 	background-color: #ff877a;
- }
+#scrollingsection {
+    overflow-y: scroll;
+    height: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-x: hidden;
+    font-size: large;
+    background-color: #ff877a;
+}
 
- #sidecard:hover{
- 	background-color:#7ad9ff;
- }
-
+#sidecard:hover {
+    background-color: #7ad9ff;
+}
 
 #sidecard {
-	padding:5px;
-	border:gray 1px solid;
-	border-radius: 5px;
-	background-color: #C6F9FF;
+    padding: 5px;
+    border: gray 1px solid;
+    border-radius: 5px;
+    background-color: #C6F9FF;
 }
 
-html, body { 
-	height: 100%; 
-	margin: 0; 
-	padding: 0; 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#map { 
-	height: 100%; 
+#map {
+    height: 100%;
 }
 
-@media (max-width:767px){
-	#scrollingsection{
-		width:70%;
-		margin: 0 auto;
-		margin-top:20px;
- 		margin-bottom: 20px;
- 		height:200px;
-	}
-	input[type='checkbox'] {
-	    -webkit-appearance:none;
-	    width:30px;
-	    height:30px;
-	    background:white;
-	    border-radius:5px;
-	    border:2px solid #555;
-	}
-	input[type='checkbox']:checked {
-	    background: #abd;
-	}
-	h1{
-  		font-size: x-large;
-  	}
+@media (max-width:767px) {
+    #scrollingsection {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: 200px;
+    }
+
+    input[type='checkbox'] {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        background: white;
+        border-radius: 5px;
+        border: 2px solid #555;
+    }
+
+    input[type='checkbox']:checked {
+        background: #abd;
+    }
+
+    h1 {
+        font-size: x-large;
+    };
 }
 
 @media (min-width: 600px) {
- 	#sidebar{
-  		font-size: x-large;
-  	}
-  	#scrollingsection{
-  		font-size: x-large;
-  	} 	
+    #sidebar {
+        font-size: x-large;
+    }
+
+    #scrollingsection {
+        font-size: x-large;
+    };
 }
 
-@media (max-width: 1303px){
-	h1{
-		font-size: 1.5em;
-	}
+@media (max-width: 1303px) {
+    h1 {
+        font-size: 1.5em;
+    };
 }
 
-#filteroption{
-	font-weight: bold;
-	font-size: 0.5em;
+#filteroption {
+    font-weight: bold;
+    font-size: 0.5em;
 }
 
-#tipButton{
-	border: 1px solid black;
-	margin:5px;
-	background-color:#47CBD9;
-	color:black;
+#tipButton {
+    border: 1px solid black;
+    margin: 5px;
+    background-color: #47CBD9;
+    color: black;
 }
 
-#tipButton:hover{
-	background-color: #c9f0f4;
+#tipButton:hover {
+    background-color: #c9f0f4;
 }
