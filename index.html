@@ -12,7 +12,32 @@
     </script>
 </head>
 
-<body>
+<body class="cbp-spmenu-push">
+
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+        <h3>Menu</h3>
+        <a href="#">Celery seakale</a>
+        <a href="#">Dulse daikon</a>
+        <a href="#">Zucchini garlic</a>
+        <a href="#">Catsear azuki bean</a>
+        <a href="#">Dandelion bunya</a>
+        <a href="#">Rutabaga</a>
+    </nav>
+
+    <div class="container">
+            <header class="clearfix">
+                <span>Blueprint</span>
+                <h1>Slide and Push Menus</h1>
+            
+            </header>
+            <div class="main">
+                <section>
+                    <h2>Slide Menus</h2>
+                    <!-- Class "cbp-spmenu-open" gets applied to menu -->
+                    <button id="showLeft">Show/Hide Left Slide Menu</button>
+                </section>
+            </div>
+        </div>
 
     <div id="panel" class="col-sm-4 col-sm-push-8">
         <div class="sidebar">
@@ -49,6 +74,26 @@
 
 
     <script type='text/javascript' src='js/script.js'></script>
+    <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+    <script src="js/classie.js"></script>
+    <script>
+        var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+            body = document.body;
+
+        showLeft.onclick = function() {
+            classie.toggle( this, 'active' );
+            classie.toggle( menuLeft, 'cbp-spmenu-open' );
+            disableOther( 'showLeft' );
+        };
+    
+
+        function disableOther( button ) {
+            if( button !== 'showLeft' ) {
+                classie.toggle( showLeft, 'disabled' );
+            }
+        
+        }
+    </script>
 </body>
 
 </html>
