@@ -14,45 +14,38 @@
 
 <body class="cbp-spmenu-push">
 
-    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-        <div class="sidebar">
-            <h3 id="title">Find Places in Atlanta</h3>
-            <p>What kind of place?</p>
-            <div id="searchArea" class="input-group">
-                <input data-bind="value: userSearch" type="text" id="search" class="form-control">
-                <span class="input-group-btn">
-                            <button data-bind="click: searchFSquare" type="button" class="btn btn-default">Search</button>
-                       </span>
-            </div>
-            <strong data-bind="text: errorMessage"></strong>
-            <div data-bind="visible: filterArea" id="filteroption">
-                <input type="checkbox" data-bind="checked: filter"> Filter results
-            </div>
-            <div data-bind="visible: filter" id="searchArea" class="input-group">
-                <input type="text" data-bind="value: filterSearch" class="form-control">
-                <span class="input-group-btn">
-                            <button data-bind="click: filterResults" type="button" class="btn btn-default">Filter</button>
-                        </span>
-            </div>
-        </div>
-    </nav>
 
-    <div class="container">
-            <header class="clearfix">
-                <span>Blueprint</span>
-                <h1>Slide and Push Menus</h1>
-            
-            </header>
-            <div class="main">
-                <section>
-                    <h2>Slide Menus</h2>
-                    <!-- Class "cbp-spmenu-open" gets applied to menu -->
-                    <button id="showRight">Show/Hide Right Slide Menu</button>
-                </section>
+    <div id="panel" class="col-sm-4 col-sm-push-8">    
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right cbp-spmenu-open" id="cbp-spmenu-s2">
+            <div class="sidebar">
+                <h3 id="title">Find Places in Atlanta</h3>
+                <p>What kind of place?</p>
+                <div id="searchArea" class="input-group">
+                    <input data-bind="value: userSearch" type="text" id="search" class="form-control">
+                    <span class="input-group-btn">
+                                <button data-bind="click: searchFSquare" type="button" class="btn btn-default">Search</button>
+                           </span>
+                </div>
+                <strong data-bind="text: errorMessage"></strong>
+                <div data-bind="visible: filterArea" id="filteroption">
+                    <input type="checkbox" data-bind="checked: filter"> Filter results
+                </div>
+                <div data-bind="visible: filter" id="searchArea" class="input-group">
+                    <input type="text" data-bind="value: filterSearch" class="form-control">
+                    <span class="input-group-btn">
+                                <button data-bind="click: filterResults" type="button" class="btn btn-default">Filter</button>
+                            </span>
+                </div>
             </div>
-        </div>
+        </nav>
 
-    <div id="panel" class="col-sm-4 col-sm-push-8">
+         <div class="main">
+            <section>
+                <h2>Slide Menus</h2>
+                <!-- Class "cbp-spmenu-open" gets applied to menu -->
+                <button id="showRight">Show/Hide Right Slide Menu</button>
+            </section>
+        </div>
         
         <div class="scrollingsection">
             <!-- ko foreach: myLocations -->
@@ -75,9 +68,11 @@
             body = document.body;
 
         showRight.onclick = function() {
-            classie.toggle( this, 'active' );
-            classie.toggle( menuRight, 'cbp-spmenu-open' );
-            disableOther( 'showRight' );
+            if ($(window).width() < 960) {
+                classie.toggle( this, 'active' );
+                classie.toggle( menuRight, 'cbp-spmenu-open' );
+                disableOther( 'showRight' );
+            }
         };
     
         function disableOther( button ) {

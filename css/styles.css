@@ -101,6 +101,10 @@ body{
 
 /*~~~~~~~~~~~~~~~SLIDING MENU~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* General styles for all menus */
+
+#showRight{
+    float:left;
+}
 .cbp-spmenu {
     background: #47a3da;
     position: fixed;
@@ -108,10 +112,10 @@ body{
 
 .cbp-spmenu h3 {
     color: #afdefa;
-    font-size: 1.9em;
+    font-size: 1em;
     padding: 20px;
     margin: 0;
-    font-weight: 300;
+    font-weight: 100;
     background: #0d77b6;
 }
 
@@ -134,8 +138,8 @@ body{
 /* Orientation-dependent styles for the content of the menu */
 
 .cbp-spmenu-vertical {
-    width: 240px;
-    height: 100%;
+    width: 400px;
+    height: 30%;
     top: 0;
     z-index: 1000;
 }
@@ -170,7 +174,7 @@ body{
 
 
 .cbp-spmenu-right {
-    right: -240px;
+    right: -400px;
 }
 
 
@@ -283,10 +287,8 @@ a:hover {
 
 .main,
 .container > header {
-    width: 90%;
-    max-width: 69em;
-    margin: 0 auto;
-    padding: 0 1.875em 3.125em 1.875em;
+    float:left;
+
 }
 
 .container > header {
@@ -350,7 +352,6 @@ a:hover {
 .main > section {
     max-width: 260px;
     width: 90%;
-    margin: 0 auto;
 }
 
 .main > section h2 {
@@ -363,10 +364,9 @@ a:hover {
     background: #47a3da;
     color: #fff;
     padding: 1.5em;
-    display: block;
     width: 100%;
     cursor: pointer;
-    margin: 10px 0;
+    float:left;
     font-size: 0.8em;
 }
 

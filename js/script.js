@@ -45,9 +45,9 @@ function AppViewModel(){
 	//Filter the results in the side window using a keyword to filter against. Runs when the filter button is clicked.
 	self.filterResults = function(){
 		//only show cards where any word in the card matches the word in the search bar.
-		console.log(self.filterSearch());
-		console.log(self.myLocations().length);
-		console.log(self.myLocations()[0]);
+		//console.log(self.filterSearch());
+		//console.log(self.myLocations().length);
+		//console.log(self.myLocations()[0]);
 		//Remove cards not related to keywords
 		self.myLocations.remove(function(item){return item.vName.search(self.filterSearch()) < 1;});
 		//Remove markers not related to keywords
@@ -60,7 +60,7 @@ function AppViewModel(){
 				}
 			}
 		}
-		console.log(newMarkers);
+		//console.log(newMarkers);
 		setMapOnAll(null);
 		markers = newMarkers;
 		setMapOnAll(map);
@@ -114,7 +114,7 @@ function AppViewModel(){
 				var venueName = results.response.groups[0].items[i].venue.name;
 				//Populate sidebar with venue names
 				currentLocation = {vName: venueName, tipUrl: results.response.groups[0].items[i].tips[0].canonicalUrl};
-				console.log("tipUrl is: " + currentLocation.tipUrl);
+				//console.log("tipUrl is: " + currentLocation.tipUrl);
 				currentLocation.id = i;
 				self.myLocations.push(currentLocation);
 				//Make a new marker
