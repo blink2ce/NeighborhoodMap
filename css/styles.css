@@ -2,7 +2,7 @@ body {
     background-color: #ff877a;
 }
 
-#scrollingsection {
+.scrollingsection {
     overflow-y: scroll;
     height: 600px;
     margin-top: 20px;
@@ -12,18 +12,24 @@ body {
     background-color: #ff877a;
 }
 
-#sidecard:hover {
+.sidecard:hover {
     background-color: #7ad9ff;
 }
 
-#sidecard {
+.sidecard {
     padding: 5px;
-    border: gray 1px solid;
+    border: #808080 1px solid;
     border-radius: 5px;
     background-color: #C6F9FF;
 }
 
-html, body {
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
     height: 100%;
     margin: 0;
     padding: 0;
@@ -34,7 +40,7 @@ html, body {
 }
 
 @media (max-width:767px) {
-    #scrollingsection {
+    .scrollingsection {
         width: 70%;
         margin: 0 auto;
         margin-top: 20px;
@@ -46,13 +52,13 @@ html, body {
         -webkit-appearance: none;
         width: 30px;
         height: 30px;
-        background: white;
+        background: #ffffff;
         border-radius: 5px;
-        border: 2px solid #555;
+        border: 2px solid #555555;
     }
 
     input[type='checkbox']:checked {
-        background: #abd;
+        background: #aabbdd;
     }
 
     h1 {
@@ -61,11 +67,11 @@ html, body {
 }
 
 @media (min-width: 600px) {
-    #sidebar {
+    .sidebar {
         font-size: x-large;
     }
 
-    #scrollingsection {
+    .scrollingsection {
         font-size: x-large;
     };
 }
@@ -81,13 +87,13 @@ html, body {
     font-size: 0.5em;
 }
 
-#tipButton {
-    border: 1px solid black;
+.tipButton {
+    border: 1px solid #000000;
     margin: 5px;
     background-color: #47CBD9;
-    color: black;
+    color: #000000;
 }
 
-#tipButton:hover {
+.tipButton:hover {
     background-color: #c9f0f4;
 }

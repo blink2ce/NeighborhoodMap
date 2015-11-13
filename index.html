@@ -5,17 +5,17 @@
     <title>Map!</title>
     <script type='text/javascript' src='js/knockout-3.3.0.js'></script>
     <script type='text/javascript' src='js/jquery-1.11.3.js'></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL4UPX21rH0FahrdZ6Tv21rPeKlY-Mjaw">
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL4UPX21rH0FahrdZ6Tv21rPeKlY-Mjaw&callback=initMap" async>
+    </script>
 </head>
 
 <body>
 
     <div id="panel" class="col-sm-4 col-sm-push-8">
-        <div id="sidebar">
+        <div class="sidebar">
             <h1 id="title">Find Places in Atlanta</h1>
             <p>What kind of place?</p>
             <div id="searchArea" class="input-group">
@@ -35,11 +35,11 @@
 			   			</span>
             </div>
         </div>
-        <div id="scrollingsection">
+        <div class="scrollingsection">
             <!-- ko foreach: myLocations -->
-            <div id="sidecard" data-bind="text: vName, click: $parent.cardClicked">
+            <div class="sidecard" data-bind="text: vName, click: $parent.cardClicked">
             </div>
-            <a class="btn btn-default" id="tipButton" data-bind="attr: {href: tipUrl}">See Tip on Foursquare</a>
+            <a class="btn btn-default" class="tipButton" data-bind="attr: {href: tipUrl}">See Tip on Foursquare</a>
             <!--/ko -->
         </div>
     </div>

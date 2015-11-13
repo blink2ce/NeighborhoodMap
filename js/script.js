@@ -1,5 +1,17 @@
+//Create the map and set the location
+var map;
+function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), {
+    	center: {lat: 33.755, lng: -84.390},
+    	zoom: 13
+  	});
+  	//activates knockout.js
+  	ko.applyBindings(new AppViewModel());
+}
+
 function AppViewModel(){
 	var self = this;
+
 	//DATA
 	var clientID = "DXJOXHELH1K44MFQUGUWKS2LDYW1FCIFV3YKXBVJSIKNTAZN";
 	var clientSecret = "OFHCOKLL1KHDTB2F4YHNXV5RSQOWICRMQXLOTOXJTNRS2BSQ";
@@ -12,16 +24,8 @@ function AppViewModel(){
 	var markers = [];
 	var bouncingMarker = null;
 	var infoWindow = new google.maps.InfoWindow();
-	var map;
 	var results;
-	//Create the map and set the location
-	function initMap() {
-	  map = new google.maps.Map(document.getElementById('map'), {
-	    center: {lat: 33.755, lng: -84.390},
-	    zoom: 13
-	  });	
-	}
-	google.maps.event.addDomListener(window, 'load', initMap);
+	//google.maps.event.addDomListener(window, 'load', initMap);
 	//Center map if window is resized
 	google.maps.event.addDomListener(window, "resize", function() {
     	var center = map.getCenter();
@@ -177,6 +181,5 @@ function AppViewModel(){
 
 }
 
-//activates knockout.js
-ko.applyBindings(new AppViewModel());
+
 
