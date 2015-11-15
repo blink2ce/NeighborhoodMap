@@ -38,16 +38,14 @@
                 </div>
             </div>
         </nav>
-
-         <div class="main">
-            <section>
-                <h2>Slide Menus</h2>
-                <!-- Class "cbp-spmenu-open" gets applied to menu -->
-                <button id="showRight">Show/Hide Right Slide Menu</button>
-            </section>
-        </div>
         
         <div class="scrollingsection">
+             <div class="main">
+                <section>
+                    <!-- Class "cbp-spmenu-open" gets applied to menu -->
+                    <button id="showRight">Show/Hide Right Slide Menu</button>
+                </section>
+                </div>
             <!-- ko foreach: myLocations -->
             <div class="sidecard" data-bind="text: vName, click: $parent.cardClicked">
             </div>
