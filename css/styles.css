@@ -1,5 +1,5 @@
 .scrollingsection {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 600px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -31,6 +31,12 @@ body {
 #map {
     height: 100%;
 }
+@media (max-width: 1153px){
+    .scrollingsection {
+        font-size: small;
+    }
+}
+
 
 @media (max-width:767px) {
     .scrollingsection {
@@ -59,15 +65,18 @@ body {
     };
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
     .sidebar {
         font-size: x-large;
     }
 
     .scrollingsection {
-        font-size: x-large;
         width:70%;
     };
+    /*This doesn't seem to do anything to the menu button.*/
+    .main > section button {
+        border: 3px solid green; 
+   }
 }
 
 #filteroption {
@@ -138,7 +147,9 @@ body {
     height: 50px;
     cursor: pointer;
     float:left;
+    margin:10px;
     font-size: 0.8em;
+    position: relative;
 }
 
 .main > section button:hover {
