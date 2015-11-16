@@ -39,13 +39,6 @@
             </div>
         </nav>
         
-        <div class="main">
-            <section>
-                <!-- Class "cbp-spmenu-open" gets applied to menu -->
-                <button id="showRight">Show/Hide Right Slide Menu</button>
-            </section>
-       </div>
-
         <div class="scrollingsection">
             <!-- ko foreach: myLocations -->
             <div class="sidecard" data-bind="text: vName, click: $parent.cardClicked">
@@ -53,11 +46,16 @@
             <a class="btn btn-default" class="tipButton" data-bind="attr: {href: tipUrl}">See Tip on Foursquare</a>
             <!--/ko -->
         </div>
+
+        <div class="main">
+            <section>
+                <!-- Class "cbp-spmenu-open" gets applied to menu -->
+                <button id="showRight">Show/Hide Right Slide Menu</button>
+            </section>
+       </div>
     </div>
 
     <div id="map" class="col-sm-8 col-sm-pull-4"></div>
-
-
 
     <script type='text/javascript' src='js/script.js'></script>
     <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->

@@ -6,6 +6,7 @@
     overflow-x: hidden;
     font-size: large;
     background-color: #ff877a;
+    
 }
 
 .sidecard:hover {
@@ -90,7 +91,7 @@ body {
 /* General styles for all menus */
 .cbp-spmenu {
     background: #47a3da;
-    position: fixed;
+    position: absolute;
 }
 
 .cbp-spmenu h3 {
@@ -105,7 +106,7 @@ body {
 /*CSS rule below is involved with getting the search bar section to line up with scrolling section*/
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
-    width: 50%;
+    width: 100%;
     height: 230px;
     top: 0;
     z-index: 1000;
@@ -113,7 +114,7 @@ body {
 
 /* Vertical menu that slides from the left or right */
 .cbp-spmenu-right {
-    right: -400px;
+    right: -1000px;
 }
 
 .cbp-spmenu-right.cbp-spmenu-open {
