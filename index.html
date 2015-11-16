@@ -23,29 +23,30 @@
                 <div id="searchArea" class="input-group">
                     <input data-bind="value: userSearch" type="text" id="search" class="form-control">
                     <span class="input-group-btn">
-                                <button data-bind="click: searchFSquare" type="button" class="btn btn-default">Search</button>
-                           </span>
+                        <button data-bind="click: searchFSquare" type="button" class="btn btn-default">Search</button>
+                    </span>
                 </div>
                 <strong data-bind="text: errorMessage"></strong>
                 <div data-bind="visible: filterArea" id="filteroption">
                     <input type="checkbox" data-bind="checked: filter"> Filter results
                 </div>
-                <div data-bind="visible: filter" id="searchArea" class="input-group">
+                <div data-bind="visible: filter" class="input-group">
                     <input type="text" data-bind="value: filterSearch" class="form-control">
                     <span class="input-group-btn">
-                                <button data-bind="click: filterResults" type="button" class="btn btn-default">Filter</button>
-                            </span>
+                        <button data-bind="click: filterResults" type="button" class="btn btn-default">Filter</button>
+                    </span>
                 </div>
             </div>
         </nav>
         
+        <div class="main">
+            <section>
+                <!-- Class "cbp-spmenu-open" gets applied to menu -->
+                <button id="showRight">Show/Hide Right Slide Menu</button>
+            </section>
+       </div>
+
         <div class="scrollingsection">
-             <div class="main">
-                <section>
-                    <!-- Class "cbp-spmenu-open" gets applied to menu -->
-                    <button id="showRight">Show/Hide Right Slide Menu</button>
-                </section>
-                </div>
             <!-- ko foreach: myLocations -->
             <div class="sidecard" data-bind="text: vName, click: $parent.cardClicked">
             </div>

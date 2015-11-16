@@ -1,7 +1,3 @@
-body {
-    background-color: #ff877a;
-}
-
 .scrollingsection {
     overflow-y: scroll;
     height: 600px;
@@ -23,16 +19,12 @@ body {
     background-color: #C6F9FF;
 }
 
-html{
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-}
-
-body{
-    height: 100%;
-    margin: 0;
-    padding: 0;
+    background-color: #ff877a;
 }
 
 #map {
@@ -73,12 +65,7 @@ body{
 
     .scrollingsection {
         font-size: x-large;
-    };
-}
-
-@media (max-width: 1303px) {
-    h1 {
-        font-size: 1.5em;
+        width:70%;
     };
 }
 
@@ -101,8 +88,6 @@ body{
 
 /*~~~~~~~~~~~~~~~SLIDING MENU~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* General styles for all menus */
-
-
 .cbp-spmenu {
     background: #47a3da;
     position: fixed;
@@ -120,8 +105,8 @@ body{
 /*CSS rule below is involved with getting the search bar section to line up with scrolling section*/
 /* Orientation-dependent styles for the content of the menu */
 .cbp-spmenu-vertical {
-    width: 400px;
-    height: 30%;
+    width: 50%;
+    height: 230px;
     top: 0;
     z-index: 1000;
 }
@@ -143,13 +128,7 @@ body{
     transition: all 0.3s ease;
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EXTRA STYLES FOR SLIDING MENU~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.main > section {
-    max-width: 260px;
-    width: 90%;
-}
-
-
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~STYLES FOR SLIDING MENU BUTTON~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .main > section button {
     border: none;
     background: #47a3da;
