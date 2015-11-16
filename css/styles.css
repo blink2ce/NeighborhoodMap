@@ -76,7 +76,10 @@ body {
     /*This doesn't seem to do anything to the menu button.*/
     .main > section button {
         border: 3px solid green; 
-   }
+    }
+    #showRight {
+        display:none;
+    }
 }
 
 #filteroption {
