@@ -14,7 +14,7 @@
 
 <body class="cbp-spmenu-push">
     <div id="panel" class="col-sm-4 col-sm-push-8">    
-        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right cbp-spmenu-open" id="cbp-spmenu-s2">
+        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right cbp-spmenu-open menuHeight" id="cbp-spmenu-s2">
             <div class="sidebar">
                 <h3 id="title">Find Places in Atlanta</h3>
                 <p>What kind of place?</p>
@@ -68,6 +68,7 @@
                 classie.toggle( this, 'active' );
                 classie.toggle( menuRight, 'cbp-spmenu-open' );
                 disableOther( 'showRight' );
+                classie.toggle( menuRight, 'menuHeight');
             }
         };
     
@@ -76,6 +77,7 @@
                 classie.toggle( showRight, 'disabled' );
             }
         }
+
     </script>
 </body>
 
